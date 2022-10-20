@@ -1,0 +1,403 @@
+
+  .travel-main {
+    background: url("./asset/img/bg.jpg") no-repeat center center/cover;
+    background-attachment: fixed;
+    display: flex;
+    height: 490px;
+  }
+
+
+  .form-group label{
+    text-align: start;
+    font-size: 14px;
+    font-style: oblique;
+    font-family: system-ui;
+    color: #175d81;
+  }
+
+.search-tool {
+  width: 90%;
+  padding: 40px;
+  margin: auto;
+  background-color: #dcd8d8d1;
+}
+
+.search-tool h1{
+  color: #2b7ea9;
+}
+
+.form-search {
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.form-group select{
+  height: 45px;
+  width: 200px;
+}
+
+.form-search button {
+  height: 45px;
+  width: 100px;
+}
+
+
+
+  [type="date"] {
+    background: #fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png) 97% 50% no-repeat;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 5px;
+  }
+
+  [type="date"]::-webkit-inner-spin-button {
+    display: none;
+  }
+
+  [type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
+
+  /* custom styles */
+
+  label {
+    display: block;
+  }
+
+  .travel-main input {
+    border-radius: 9px;
+    background-color: #fff;
+    padding: 10px 10px;
+    height: 43px;
+    width: 200px;
+  }
+
+  .form-inline button {
+    width: 100px;
+    height: 48px;
+  }
+
+  .form-inline {
+    display: flex;
+    align-items: flex-end;
+    font-family: Arial;
+  }
+
+  .travel-inline>h1 {
+    margin-bottom: 15px;
+    color: #0078AA;
+  }
+
+  .order-icon {
+    font-size: 50px; color: #4b7a94;
+  }
+
+  .py-lg-5 {
+    margin: 80px;
+    border-radius: 18px;
+    background-color: #dededec7;
+  }
+
+  body>.p-3 {
+    background-color: #46a9db !important;
+    background-image: linear-gradient(316deg, #4b778f, transparent);
+  }
+
+  .text-secondary {
+    color: #141414 !important;
+    font-weight: 700;
+  }
+
+  .btn-primary {
+    background-color: #275065 !important;
+    background-image: linear-gradient(46deg, #8eabba, transparent);
+    border: none !important;
+  }
+
+  .sidebar-date-group input {
+    height: 43px;
+  }
+
+  .sidebar-date-group {
+    margin-left: -7px;
+    display: flex; justify-content: space-between;
+    gap: 4px;
+  }
+
+  .sidebar-date-group input{width: 100% !important;}
+
+  .btn-special {
+    background-color: #275065 !important;
+    background-image: linear-gradient(15deg, #8eabba, transparent);
+  }
+
+
+  .sidebar-date-group input {
+    width: 100% !important;
+  }
+  
+
+
+  /*CART ALANI*/
+
+
+  .carousel-inner {
+    height: 230px !important;
+  }
+
+  .carousel-inner img {
+    height: 230px !important;
+  }
+  .card-text {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    height: 34px;
+    overflow: hidden;
+  }
+  .chips {
+    padding: 2px 15px;
+    background-color: #e9e9e9;
+    color: #7f7f7f;
+    border-radius: 5px;
+  }
+
+  .cart-price {font-size: 20px;}
+  .cart-price i{font-size: 10px; color: red;}
+
+  .coloud-info { position: absolute; }
+
+  .coloud-info p{
+     background-color: #f8f9fab5;
+     padding: 1px;
+     margin: 7px !important;
+     border-radius: 5px;
+     margin-top: 0;
+     margin-bottom: 1rem;
+  }
+
+  /* Marketing */
+
+
+  .marketing {
+    margin-top: 25px;
+  }
+
+  .col-lg-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    row-gap: 5px;
+    justify-content: space-between;
+  }
+
+  .featurette>.col-md-7 {
+    text-align: center;
+    margin: auto;
+  }
+
+
+  /* Page sidebar */
+
+  .sidebar {
+    background-color: #dbdbdb94;
+    padding: 20px;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3AB4F2;
+    font-size: 18px;
+  }
+
+  .sidebar>form div {
+    margin-bottom: 15px;
+  }
+
+  .sidebar>form div label {
+    padding: 3px 8px;
+  }
+
+
+  /* Page sidebar */
+
+  .page-num {
+    margin-top: 20px;
+  }
+
+
+  #otelImageCarousel {
+    overflow: hidden;
+  }
+
+  .carousel-inner-otel {
+    height: 500px;
+  }
+
+  .carousel-inner-otel img {
+    height: 500px;
+  }
+
+
+
+
+  /* Otel İnfo */
+  .otel-info {
+    background-color: #fff;
+    margin-top: 10px;
+  }
+
+  .star i {
+    color: #d1d12e;
+  }
+
+
+  .otel-info header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+  }
+
+  .otel-info article {
+    padding: 15px;
+  }
+
+
+  .room-list {
+    margin-top: 15px;
+    
+  }
+
+  .room-list header{
+    background-color: #fff;
+    padding: 15px;
+  }
+
+  .rooms {
+    list-style-type: none;
+    
+    padding: 0px;
+  }
+  .rooms li{
+    margin-top: 15px;
+    display: flex;
+    background-color: #fff;
+  }
+
+  .roomsCarousel{
+    overflow: hidden;
+    width: 290px;
+    height: 200px;
+  } 
+  .roomsCarousel img{
+    width: 290px;
+    height: 200px;
+  }
+  .room-info{
+    padding:10px;
+    width: calc(100% - 270px);
+    min-width: 280px;
+  }
+  .room-desc {
+    height: 100px;
+    overflow: hidden;
+  }
+  .button-row {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+
+  .button-row p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin: 0px;
+    margin-right: 20px;
+    padding: 3px 15px;
+    border-radius: 5px;
+    background-color: #e3e3e3;
+  }
+
+  /* Otel İnfo */
+
+  /* Comment */
+
+  .comment-text button{
+    margin-top: 5px;
+  }
+
+  .sidebar p{
+    padding: 10px 15px;
+    background-color: #3AB4F2;
+    color: black;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* ORDER */
+
+  .card-order {
+    margin-top: 20px;
+  }
+
+  .card-order .row > div{
+    padding: 20px 40px;
+    box-sizing: border-box;
+    margin: auto;
+  }
+
+
+.admin-card {
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.admin-card p {
+  font-size: 45px;
+    font-weight: 100;
+    font-family: unset;
+    text-align: end;
+    margin: 0px;
+}
+
+ .dropdown-menu-dark li{
+    padding: 7px 0;
+  }
+.gradient-bg{
+  background-image: linear-gradient(128deg, #4b7a93, #b1bdc8);
+  box-shadow: 3px -3px 45px #4b799396;
+  color: white;
+
+}
+
+.badge-success {
+  background-color: #d84646;
+}
+.badge-customer {
+  background-color: #b3b2b2;
+}
+.badge-yellow {
+  background-color: #adad0c;
+}
+
+.imgPrev {
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: #e7e7e7;
+  margin-bottom: 3px;
+}
+
+
+
+
+
+
+
+
+  

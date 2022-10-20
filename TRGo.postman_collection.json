@@ -1,0 +1,713 @@
+{
+	"info": {
+		"_postman_id": "8a7bb781-d8d4-4469-8a75-b3f3150d332f",
+		"name": "TRgo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "21640920"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "User Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"hasan@yaani.com\",\r\n  \"enabled\": true,\r\n  \"firstName\": \"Hasan\",\r\n  \"lastName\": \"Berk\",\r\n  \"password\": \"12345\",\r\n  \"roles\": [\r\n    {\r\n      \"id\": 2\r\n    }\r\n  ],\r\n  \"tokenExpired\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8085/user/register"
+					},
+					"response": []
+				},
+				{
+					"name": "User Auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"gokhansahiner@yaani.com\",\r\n  \"password\": \"kartallar\"\r\n  \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8085/user/auth"
+					},
+					"response": []
+				},
+				{
+					"name": "User Change Password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2toYW5AeWFhbmkuY29tIiwiZXhwIjoxNjY1NDkyOTExLCJpYXQiOjE2NjU0NzQ5MTF9.RH5pR3uhyZlA7Nl88g4Jz83WqzCH2GZJXe4m51mYgJ8"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8085/user/changepassword?oldPassword=benbazen&newPassword=12345",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"user",
+								"changepassword"
+							],
+							"query": [
+								{
+									"key": "oldPassword",
+									"value": "benbazen"
+								},
+								{
+									"key": "newPassword",
+									"value": "12345"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2toYW5AeWFhbmkuY29tIiwiZXhwIjoxNjY1NTA2MjI1LCJpYXQiOjE2NjU0ODgyMjV9.L3rTcpueAH8dbcYV7nxhQNfxN50Ry8HIn-HD2ndXFvw"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/user/update?firstName=Gökhan&lastName=Şahiner&email=gokhan@yaani.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"user",
+								"update"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Gökhan"
+								},
+								{
+									"key": "lastName",
+									"value": "Şahiner"
+								},
+								{
+									"key": "email",
+									"value": "gokhan@yaani.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8085/user/list"
+					},
+					"response": []
+				},
+				{
+					"name": "User Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/user/getuser?username=gokhan@yaani.com",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"user",
+								"getuser"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "gokhan@yaani.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Total",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8085/user/total"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Taxonomy",
+			"item": [
+				{
+					"name": "Taxonomy Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Balayı Konsepti\",\r\n  \"description\": \"Balayına Uygun Otel\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8085/taxonomy/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Taxonomy List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8085/taxonomy/list"
+					},
+					"response": []
+				},
+				{
+					"name": "Taxonomy Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"tax_id\": 7,\r\n  \"name\": \"Spa Tesisi\",\r\n  \"description\": \"Spa Tesisi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8085/taxonomy/update"
+					},
+					"response": []
+				},
+				{
+					"name": "Taxonomy Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/taxonomy/delete?id=8",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"taxonomy",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "Location Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"city\": \"Muğla\",\r\n  \"district\": \"Marmaris\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8085/location/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Location List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8085/location/list"
+					},
+					"response": []
+				},
+				{
+					"name": "Location Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"city\": \"Muğla\",\r\n  \"district\": \"Bodrum\",\r\n  \"lid\": 13\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8085/location/update"
+					},
+					"response": []
+				},
+				{
+					"name": "Location Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/location/delete?id=13",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"location",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "13"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pictures",
+			"item": [
+				{
+					"name": "Image Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"file\": \"odaResim5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8085/image/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Image Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8085/image/delete/15"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Product Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"otel_name\": \"Sherwood Exclusive Lara\",\r\n  \"description\": \"Antalya’nın gözde tatil merkezi Lara’daki konumu ile eğlence dolu bir\",\r\n  \"location\": {\r\n    \"lid\": 11\r\n  },\r\n  \"pictures\": [\r\n    {\r\n      \"lid\": 15\r\n    },{\r\n      \"lid\": 17\r\n    },{\r\n      \"lid\": 16\r\n    }\r\n  ],\r\n  \"star_ratings\": 5,\r\n  \"taxonomies\": [\r\n        {\r\n          \"taxid\": 6\r\n        },\r\n        {\r\n          \"taxid\": 5\r\n        },\r\n        {\r\n          \"taxid\": 4\r\n        }\r\n      ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8085/product/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Product List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8085/product/list"
+					},
+					"response": []
+				},
+				{
+					"name": "Product Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/product/get?id=24",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"product",
+								"get"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "24"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Product List Location",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[9,12]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8085/product/list/loc"
+					},
+					"response": []
+				},
+				{
+					"name": "Product List Tax",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[3,5]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8085/product/list/tax"
+					},
+					"response": []
+				},
+				{
+					"name": "Product List Basic",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8085/product/list/basic"
+					},
+					"response": []
+				},
+				{
+					"name": "Product Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2toYW5AeWFhbmkuY29tIiwiZXhwIjoxNjY2MTg2ODg4LCJpYXQiOjE2NjYxNjg4ODh9.N9S_lhkzRA-fc-KAUUAI0leY1-uXZ-NcBty_IuIizaw"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/product/delete?id=230",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"product",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "230"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Room",
+			"item": [
+				{
+					"name": "Rooms Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bed\": 6,\r\n  \"description\": \"Olive Garden\",\r\n  \"name\": \"Olive Garden\",\r\n  \"pictures\": [\r\n    {\r\n      \"lid\": 20\r\n    },{\r\n      \"lid\": 21\r\n    }\r\n  ],\r\n  \"price\": 590,\r\n  \"product_id\": 24,\r\n  \"quantity\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8085/room/add"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Comment Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"comment\": \"merhabalar herkese\",\r\n  \"proid\": 33,\r\n  \"rating\": 4,\r\n  \"user\": {\"id\": 2 }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8085/comment/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Comment Product List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/comment/product/list?pid=35",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"comment",
+								"product",
+								"list"
+							],
+							"query": [
+								{
+									"key": "pid",
+									"value": "35"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comment User List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/comment/product/list?id=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"comment",
+								"product",
+								"list"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Comment Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/comment/delete?id=46",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"comment",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "46"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Order Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"person\": 3,\r\n  \"price\": 3000,\r\n  \"room\": {\r\n    \"room_id\": 38\r\n  },\r\n  \"startDate\": \"2022-10-07T18:06:15.820Z\",\r\n  \"endDate\": \"2022-13-07T18:06:15.819Z\",\r\n  \"user\": {\r\n    \"id\": 1\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8085/order/add"
+					},
+					"response": []
+				},
+				{
+					"name": "Order List All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8085/order/list/all"
+					},
+					"response": []
+				},
+				{
+					"name": "Order List Productid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/order/list/productid?id=24",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"order",
+								"list",
+								"productid"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "24"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8085/order/delete?id=52",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"order",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "52"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Order List User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnb2toYW5AeWFhbmkuY29tIiwiZXhwIjoxNjY1MjUxMzIyLCJpYXQiOjE2NjUyMzMzMjJ9.8cuZQhgP7loJuloXmNF8W903FX-D6i941GuJlt_t9fk"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "localhost:8085/order/list/user"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
