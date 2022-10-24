@@ -2,7 +2,7 @@
  Etstur Java Developer Bootcamp Graduation Project
  
  Kullanılan Teknolojiler: <br>
- -> Back-End: Java, Rest Api, Spring Boot, JPA, Spring Securit <br>
+ -> Back-End: Java, RestApi, Spring Boot, JPA, Spring Securit <br>
  -> Front-End: React,HTML,CSS,TS <br>
 <br>
 Video Linki: https://drive.google.com/file/d/1Qh0Vt9Qp1n-4_piaJDb-exQ_hNZIQi-a/view?usp=sharing<br>
