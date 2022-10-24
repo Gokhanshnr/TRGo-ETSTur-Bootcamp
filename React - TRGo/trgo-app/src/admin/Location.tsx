@@ -42,6 +42,8 @@ function Location() {
                 addLocation(city, district).then(res => {
                 const status:any = res.data;
                 toast.success(city + " Başarıyla Eklendi")
+                setCity("");
+                setDistrict("");
                 locList();
             }).catch(error =>{
             toast.error("Bir hata oluştu")
@@ -93,13 +95,7 @@ function Location() {
                                                 </>
                                             </tbody>
                                         </table>
-                                        <nav aria-label="Page navigation example">
-                                            <ul className="pagination">
-                                                <li className="page-item"><a className="page-link" href="#">1</a></li>
-                                                <li className="page-item"><a className="page-link" href="#">2</a></li>
-                                                <li className="page-item"><a className="page-link" href="#">3</a></li>
-                                            </ul>
-                                        </nav>
+                                      
                                     </div>
                                 </div>
                                 <div className="col-5">
@@ -109,12 +105,12 @@ function Location() {
                                         <form onSubmit={fncLocAdd} >
                                             <div className="form-group">
                                                 <label htmlFor="name">Şehir</label>
-                                                <input type="text" onChange={(evt) => setCity(evt.target.value)} className="form-control" id="city" placeholder="Name ..." />
+                                                <input type="text" value={city} onChange={(evt) => setCity(evt.target.value)} className="form-control" id="city" placeholder="Name ..." />
                                             </div>
                                             <br />
                                             <div className="form-group">
                                                 <label htmlFor="district">İlçe</label>
-                                                <input type="text" onChange={(evt) => setDistrict(evt.target.value)} className="form-control" id="district" placeholder="Description.." />
+                                                <input type="text" value={district} onChange={(evt) => setDistrict(evt.target.value)} className="form-control" id="district" placeholder="Description.." />
                                             </div>
                                             <br />
                                             <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Ekle</button>

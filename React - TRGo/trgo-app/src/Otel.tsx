@@ -52,13 +52,14 @@ function Otel() {
         })
 
 
-        getUser(control()!.RESULT?.username + "").then(res => {
-            const arr = res.data
-            
-            setUser(arr?.RESULT.first_name+" "+ arr?.RESULT.last_name);
-         
-        })
-        
+        if (control() != null) {
+            getUser(control()?.RESULT?.username + "").then(res => {
+                const arr = res.data
+
+                setUser(arr?.RESULT.first_name + " " + arr?.RESULT.last_name);
+
+            })
+        }
 
 
         getComment();
@@ -78,7 +79,8 @@ function Otel() {
             addComment(commentText!, pid!).then(res => {
                 const status: any = res.data;
                 getComment();
-
+                setCommentText("");
+                toast.success("Yorum Gönderildi.")
             })
         } catch {
             console.log("Hata")
@@ -93,33 +95,34 @@ function Otel() {
     }
 
     const fncAddOrder = (roomId: number) => {
-        try{
-        addOrder(person, roomId, startDate.toISOString(), endDate.toISOString()).then(res => {
-            const arr: any = res.data;
-            toast.success("Siparişiniz Alındı")
-            navigate('/siparisler')
-        })}catch {
+        try {
+            addOrder(person, roomId, startDate.toISOString(), endDate.toISOString()).then(res => {
+                const arr: any = res.data;
+                toast.success("Siparişiniz Alındı")
+                navigate('/siparisler')
+            })
+        } catch {
             toast.error("Giriş yapmanız gerekiyor.")
         }
     }
-    
+
 
     const fncGetDay = () => {
 
         const _MS_PER_DAY = 1000 * 60 * 60 * 24;
         const utc1 = Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate());
         const utc2 = Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate());
-      
+
         return Math.floor((utc2 - utc1) / _MS_PER_DAY);
-       
+
     }
 
 
     const fncStDateForm = (evt: React.FormEvent) => {
         evt.preventDefault()
         setStDate(startDate!, endDate!, person!);
-        toast.success(fncGetDay()+" Gün "+ person +" kişi olarak güncellendi" )
-      }
+        toast.success(fncGetDay() + " Gün " + person + " kişi olarak güncellendi")
+    }
 
     return (
         <>
@@ -133,13 +136,13 @@ function Otel() {
                                 <hr />
                                 <form onSubmit={fncStDateForm}>
                                     <div className="sidebar-date-group">
-                                        <div className="form-group mb-2" style={{width: '125px'}}>
+                                        <div className="form-group mb-2" style={{ width: '125px' }}>
                                             <label htmlFor="startDate" className="sr-only">Giriş Tarihi</label>
-                                            <input type="date" value={startDate.toISOString().split("T")[0]} onChange={(evt) => {setStartDate(new Date(evt.target.value)) }} min={new Date().toISOString().split("T")[0]} name="startDate" id="startDate" />
+                                            <input type="date" value={startDate.toISOString().split("T")[0]} onChange={(evt) => { setStartDate(new Date(evt.target.value)) }} min={new Date().toISOString().split("T")[0]} name="startDate" id="startDate" />
                                         </div>
-                                        <div className="form-group mb-2" style={{width: '125px'}}>
+                                        <div className="form-group mb-2" style={{ width: '125px' }}>
                                             <label htmlFor="endDate" className="sr-only">Çıkış Tarihi</label>
-                                            <input type="date"  value={endDate.toISOString().split("T")[0]} onChange={(evt) => setEndDate(new Date(evt.target.value))} min={startDate?.toISOString().split("T")[0]}  name="endDate" id="endDate" />
+                                            <input type="date" value={endDate.toISOString().split("T")[0]} onChange={(evt) => setEndDate(new Date(evt.target.value))} min={startDate?.toISOString().split("T")[0]} name="endDate" id="endDate" />
                                         </div>
                                         <div className="form-group mb-2">
                                             <label htmlFor="endDate" className="sr-only">Kişi</label>
@@ -180,151 +183,151 @@ function Otel() {
                         </div>
                         <div className="col-md-8 order-md-2 ">
                             <div id="otelImageCarousel" className="carousel slide" data-bs-ride="carousel">
-                            <div className="carousel-inner-otel">
-                                {
-                                    product?.RESULT.pictures.map((evt, i) => {
-                                        return  <div className={"carousel-item " +  ((i == 0) ? 'active' : '')}>
-                                        <img src={evt.file} className="d-block w-100" alt="..." />
-                                    </div>
-                                        
-                                    })
-                                }
-                            </div>
-                            <button className="carousel-control-prev" type="button" data-bs-target="#otelImageCarousel" data-bs-slide="prev">
-                                <span className="carousel-control-prev-icon" aria-hidden="true" />
-                                <span className="visually-hidden">Previous</span>
-                            </button>
-                            <button className="carousel-control-next" type="button" data-bs-target="#otelImageCarousel" data-bs-slide="next">
-                                <span className="carousel-control-next-icon" aria-hidden="true" />
-                                <span className="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                        <div className="otel-info">
-                            <header>
-                                <h2 style={{ color: '#0078AA' }}>{product?.RESULT.otel_name}</h2>
-                                <div className="star">
+                                <div className="carousel-inner-otel">
+                                    {
+                                        product?.RESULT.pictures.map((evt, i) => {
+                                            return <div className={"carousel-item " + ((i == 0) ? 'active' : '')}>
+                                                <img src={evt.file} className="d-block w-100" alt="..." />
+                                            </div>
 
-                                    {[...Array((product?.RESULT.star_ratings))].map((x, i) => {
-                                        return <i className="bi bi-star-fill" />
+                                        })
                                     }
-                                    )}
-
                                 </div>
-                            </header>
-                            <hr />
-                            <article>
-                                {product?.RESULT?.description}
-                            </article>
-                        </div>
-                        <div className="room-list">
-                            <header>
-                                <h3>Oda Listesi</h3>
-                            </header>
-                            <ul className="rooms">
+                                <button className="carousel-control-prev" type="button" data-bs-target="#otelImageCarousel" data-bs-slide="prev">
+                                    <span className="carousel-control-prev-icon" aria-hidden="true" />
+                                    <span className="visually-hidden">Previous</span>
+                                </button>
+                                <button className="carousel-control-next" type="button" data-bs-target="#otelImageCarousel" data-bs-slide="next">
+                                    <span className="carousel-control-next-icon" aria-hidden="true" />
+                                    <span className="visually-hidden">Next</span>
+                                </button>
+                            </div>
+                            <div className="otel-info">
+                                <header>
+                                    <h2 style={{ color: '#0078AA' }}>{product?.RESULT.otel_name}</h2>
+                                    <div className="star">
 
-                                {
-                                    product?.RESULT.rooms.map((evt, i) => {
-                                        return <li>
-                                            <div id={"room-" + i} className="carousel slide roomsCarousel" data-pause="hover" data-bs-ride="carousel">
-                                                <div className="carousel-inner-otel">
-                                                    {evt.pictures.map((res, i) => {
-                                                        return <div className={"carousel-item " +  ((i == 0) ? 'active' : '')}>
-                                                            <img src={res.file} className="d-block w-100" alt="..." />
-                                                        </div>
-                                                    })}
-                                                </div>
-                                                <button className="carousel-control-prev" type="button" data-bs-target={"#room-" + i} data-bs-slide="prev">
-                                                    <span className="carousel-control-prev-icon" aria-hidden="true" />
-                                                    <span className="visually-hidden">Previous</span>
-                                                </button>
-                                                <button className="carousel-control-next" type="button" data-bs-target={"#room-" + i} data-bs-slide="next">
-                                                    <span className="carousel-control-next-icon" aria-hidden="true" />
-                                                    <span className="visually-hidden">Next</span>
-                                                </button>
-                                            </div>
-                                            <div className="room-info">
-                                                <h4>{evt.name}</h4>
-                                                <div className="room-desc">
-                                                    {evt.description}
-                                                </div>
-                                                <div className="button-row">
-                                                    <p style={{ fontSize: '20px', backgroundColor: '#ebebeb' }}> Yatak : {evt.bed}</p>
-                                                    <p> Fiyat: { fncGetDay() * person! * evt.price }TL</p>
-                                                    <button onClick={() => fncAddOrder(evt.room_id)} className="btn btn-primary mb-2">Satın Al</button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    })
-                                }
+                                        {[...Array((product?.RESULT.star_ratings))].map((x, i) => {
+                                            return <i className="bi bi-star-fill" />
+                                        }
+                                        )}
 
-                            </ul>
-                        </div>
-                        <section className="comment">
-                            {user != undefined &&
-                                <div className="my-5" style={{ marginBottom: '0px !important' }}>
-                                    <div className="row d-flex justify-content-center">
-                                        <div className="col-md-12 col-lg-12">
-                                            <div className="card text-dark">
-                                                <div className="card-body p-4">
-                                                    <div className="d-flex flex-start">
-                                                        <img className="rounded-circle shadow-1-strong me-3" src="/img/profile_img.jpg" alt="avatar" width={60} height={60} />
-                                                        <div style={{ width: '100%' }}>
-                                                            <h6 className="fw-bold mb-1">{user}</h6>
-                                                            <div className="d-flex align-items-center mb-3">
+                                    </div>
+                                </header>
+                                <hr />
+                                <article>
+                                    {product?.RESULT?.description}
+                                </article>
+                            </div>
+                            <div className="room-list">
+                                <header>
+                                    <h3>Oda Listesi</h3>
+                                </header>
+                                <ul className="rooms">
+
+                                    {
+                                        product?.RESULT.rooms.map((evt, i) => {
+                                            return <li>
+                                                <div id={"room-" + i} className="carousel slide roomsCarousel" data-pause="hover" data-bs-ride="carousel">
+                                                    <div className="carousel-inner-otel">
+                                                        {evt.pictures.map((res, i) => {
+                                                            return <div className={"carousel-item " + ((i == 0) ? 'active' : '')}>
+                                                                <img src={res.file} className="d-block w-100" alt="..." />
                                                             </div>
-                                                            <form onSubmit={fncAddComment} className="comment-text">
-                                                                <textarea className="form-control" onChange={(evt) => setCommentText(evt.target.value)} placeholder="Yorum yaz" id="commentTextArea" rows={3} defaultValue={""} />
-                                                                <button type="submit" className="btn btn-primary">Gönder</button>
-                                                            </form>
+                                                        })}
+                                                    </div>
+                                                    <button className="carousel-control-prev" type="button" data-bs-target={"#room-" + i} data-bs-slide="prev">
+                                                        <span className="carousel-control-prev-icon" aria-hidden="true" />
+                                                        <span className="visually-hidden">Previous</span>
+                                                    </button>
+                                                    <button className="carousel-control-next" type="button" data-bs-target={"#room-" + i} data-bs-slide="next">
+                                                        <span className="carousel-control-next-icon" aria-hidden="true" />
+                                                        <span className="visually-hidden">Next</span>
+                                                    </button>
+                                                </div>
+                                                <div className="room-info">
+                                                    <h4>{evt.name}</h4>
+                                                    <div className="room-desc">
+                                                        {evt.description}
+                                                    </div>
+                                                    <div className="button-row">
+                                                        <p style={{ fontSize: '20px', backgroundColor: '#ebebeb' }}> Yatak : {evt.bed}</p>
+                                                        <p> Fiyat: {fncGetDay() * person! * evt.price}TL</p>
+                                                        <button onClick={() => fncAddOrder(evt.room_id)} className="btn btn-primary mb-2">Satın Al</button>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        })
+                                    }
+
+                                </ul>
+                            </div>
+                            <section className="comment">
+                                {user != undefined &&
+                                    <div className="my-5" style={{ marginBottom: '0px !important' }}>
+                                        <div className="row d-flex justify-content-center">
+                                            <div className="col-md-12 col-lg-12">
+                                                <div className="card text-dark">
+                                                    <div className="card-body p-4">
+                                                        <div className="d-flex flex-start">
+                                                            <img className="rounded-circle shadow-1-strong me-3" src="/img/profile_img.jpg" alt="avatar" width={60} height={60} />
+                                                            <div style={{ width: '100%' }}>
+                                                                <h6 className="fw-bold mb-1">{user}</h6>
+                                                                <div className="d-flex align-items-center mb-3">
+                                                                </div>
+                                                                <form onSubmit={fncAddComment} className="comment-text">
+                                                                    <textarea className="form-control" value={commentText} onChange={(evt) => setCommentText(evt.target.value)} placeholder="Yorum yaz" id="commentTextArea" rows={3} defaultValue={""} />
+                                                                    <button type="submit" className="btn btn-primary">Gönder</button>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            }
-                            <div className=" my-2">
-                                <div className="row d-flex justify-content-center">
-                                    <div className="col-md-12 col-lg-12">
-                                        <div className="card text-dark">
-                                            <h4 className="mb-0" style={{ margin: '20px' }}>Otel Yorumları</h4>
+                                }
+                                <div className=" my-2">
+                                    <div className="row d-flex justify-content-center">
+                                        <div className="col-md-12 col-lg-12">
+                                            <div className="card text-dark">
+                                                <h4 className="mb-0" style={{ margin: '20px' }}>Otel Yorumları</h4>
 
-                                            {
-                                                comments?.RESULT.map((evt, i) => {
+                                                {
+                                                    comments?.RESULT.map((evt, i) => {
 
-                                                    return <> <hr />
-                                                        <div className="card-body p-4">
-                                                            <div className="d-flex flex-start">
-                                                                <img className="rounded-circle shadow-1-strong me-3" src="/img/profile_img.jpg" alt="avatar" width={60} height={60} />
-                                                                <div>
-                                                                    <h6 className="fw-bold mb-1">{evt.first_name} {evt.last_name}</h6>
-                                                                    <div className="d-flex align-items-center mb-3">
+                                                        return <> <hr />
+                                                            <div className="card-body p-4">
+                                                                <div className="d-flex flex-start">
+                                                                    <img className="rounded-circle shadow-1-strong me-3" src="/img/profile_img.jpg" alt="avatar" width={60} height={60} />
+                                                                    <div>
+                                                                        <h6 className="fw-bold mb-1">{evt.first_name} {evt.last_name}</h6>
+                                                                        <div className="d-flex align-items-center mb-3">
+                                                                            <p className="mb-0">
+                                                                                {fncDateFormat(evt.cdate)}
+                                                                            </p>
+                                                                        </div>
                                                                         <p className="mb-0">
-                                                                            {fncDateFormat(evt.cdate)}
+                                                                            {evt.comment}
                                                                         </p>
                                                                     </div>
-                                                                    <p className="mb-0">
-                                                                        {evt.comment}
-                                                                    </p>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                    </>
-                                                })
-                                            }
+                                                        </>
+                                                    })
+                                                }
 
 
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </section>
+                            </section>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </>
     )
 }

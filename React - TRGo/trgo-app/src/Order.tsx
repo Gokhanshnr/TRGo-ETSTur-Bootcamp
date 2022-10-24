@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import NavBar from './components/NavBar'
 import { getOrderList, orderDelete } from './Service'
 import { IOrder } from './models/IOrder'
+import { toast } from 'react-toastify'
 
 
 function Order() {
@@ -28,6 +29,7 @@ function Order() {
 
         orderDelete(orderId).then(res => {
             fncOrderList();
+            toast.error("Siparişiniz iptal edildi.")
         })
 
     }

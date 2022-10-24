@@ -45,6 +45,8 @@ function Taxonomy() {
         addTaxonomy(name, description).then(res => {
             const status: any = res.data;
             toast.success(name + " Başarıyla Eklendi")
+            setDescription("");
+            setName("");
             taxList();
         }).catch(error => {
             toast.error("Bir hata oluştu")
@@ -99,13 +101,7 @@ function Taxonomy() {
                                                 </>
                                             </tbody>
                                         </table>
-                                        <nav aria-label="Page navigation example">
-                                            <ul className="pagination">
-                                                <li className="page-item"><a className="page-link" href="#">1</a></li>
-                                                <li className="page-item"><a className="page-link" href="#">2</a></li>
-                                                <li className="page-item"><a className="page-link" href="#">3</a></li>
-                                            </ul>
-                                        </nav>
+                                    
                                     </div>
                                 </div>
                                 <div className="col-5">
@@ -115,12 +111,12 @@ function Taxonomy() {
                                         <form onSubmit={fncTaxAdd}  >
                                             <div className="form-group">
                                                 <label htmlFor="name">Etiket Adı</label>
-                                                <input type="text" className="form-control" onChange={(evt) => setName(evt.target.value)} id="name" placeholder="Name ..." />
+                                                <input type="text" value={name} className="form-control" onChange={(evt) => setName(evt.target.value)} id="name" placeholder="Name ..." />
                                             </div>
                                             <br />
                                             <div className="form-group">
                                                 <label htmlFor="desc">Etiket Detay</label>
-                                                <input type="text" className="form-control" onChange={(evt) => setDescription(evt.target.value)} id="desc" placeholder="Description.." />
+                                                <input type="text" value={description} className="form-control" onChange={(evt) => setDescription(evt.target.value)} id="desc" placeholder="Description.." />
                                             </div>
                                             <br />
                                             <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Ekle</button>

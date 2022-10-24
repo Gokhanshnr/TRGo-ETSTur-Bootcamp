@@ -133,6 +133,7 @@ function RoomAdd() {
                                                                 <label htmlFor="country">Otel</label>
                                                                 <div className="form-group mb-2">
                                                                     <select className="form-select" value={otelId} onChange={e => { setOtelId(e.target.value); }} style={{ width: '100%' }} aria-label="Default select example">
+                                                                         <option value="" selected>Otel Seçiniz</option>
                                                                         {
                                                                         productList?.RESULT.map(evt => {
                                                                             return <option value={evt.pid}>{evt.otelName} ( {evt.rooms} )</option>
@@ -184,7 +185,7 @@ function RoomAdd() {
                                                 <div className="col-4">
                                                     <div className="p-3 border bg-light ">
                                                         {picList.map((evt, i) => {
-                                                            return <li><img src={evt.file} width="50" height="50"></img> <i>{evt.lid}</i></li>
+                                                             return <div className="imgPrev"><img src={evt.file} width="50" height="50"></img> <i>{evt.lid}</i></div>
                                                         })}
                                                         <div className="mb-3">
                                                             <label htmlFor="roomImage" className="form-label">Resim Ekle</label>

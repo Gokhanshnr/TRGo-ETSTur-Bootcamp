@@ -134,7 +134,7 @@ function List() {
                             </div>
                             <br />
                             <div className="sidebar">
-                                <h3> Filitreler </h3>
+                                <h3> Filtreler </h3>
                                 <hr />
                                 <form>
                                     <div className="form-group">
@@ -234,7 +234,7 @@ function List() {
                                                                 <div className="btn-group">
                                                                     <NavLink to={"/otel/"+res.pid} className="btn btn-primary">İncele</NavLink>
                                                                 </div>
-                                                                <small className="cart-price"><i> {fncGetDay()} Gece {bookDate?.person} Kişi </i>{fncGetDay() * person! *(res.rooms[0]?.price)} TL</small>
+                                                                <small className="cart-price"><i> {fncGetDay()} Gece {person} Kişi </i>{fncGetDay() * person! *(res.rooms[0]?.price)} TL</small>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -251,21 +251,7 @@ function List() {
 
                             </div>
                             <div className="page-num">
-                                <nav aria-label="...">
-                                    <ul className="pagination">
-                                        <li className="page-item disabled">
-                                            <a className="page-link" href="#" tabIndex={-1}>Previous</a>
-                                        </li>
-                                        <li className="page-item"><a className="page-link" href="#">1</a></li>
-                                        <li className="page-item active">
-                                            <a className="page-link" href="#">2</a>
-                                        </li>
-                                        <li className="page-item"><a className="page-link" href="#">3</a></li>
-                                        <li className="page-item">
-                                            <a className="page-link" href="#">Next</a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                           
                             </div>
                         </div>
                     </div>

@@ -55,7 +55,13 @@ function Member() {
         customerRegister(name, surname, emailI, passwordI).then(res => {
             const status:any = res.data;
             if(status.STATUS){
-                toast.success("Kullanıcı başarılı bir şekilde oluşturuldu")
+                toast.info("Giriş Yapabilirsiniz.")
+                toast.success("Kullanıcı başarılı bir şekilde oluşturuldu.")
+                
+                setName("");
+                setSurname("");
+                setEmailI("");
+                setPasswordI("");
                 
             }else{
                
@@ -106,31 +112,31 @@ function Member() {
                                         <div className="row">
                                         <div className="col-md-6 mb-3">
                                             <label htmlFor="firstName">First name</label>
-                                            <input type="text" onChange={(evt) => setName(evt.target.value)} className="form-control" id="firstName" required />
+                                            <input type="text" value={name} onChange={(evt) => setName(evt.target.value)} className="form-control" id="firstName" required />
                                             <div className="invalid-feedback">
                                                 Valid first name is required.
                                             </div>
                                         </div>
                                         <div className="col-md-6 mb-3">
                                             <label htmlFor="lastName">Last name</label>
-                                            <input type="text" onChange={(evt) => setSurname(evt.target.value)} className="form-control" id="lastName" required />
+                                            <input type="text" value={surname} onChange={(evt) => setSurname(evt.target.value)} className="form-control" id="lastName" required />
                                             <div className="invalid-feedback">
                                                 Valid last name is required.
                                             </div>
                                         </div>
                                     </div>
                                     <div className="mb-3">
-                                        <label htmlFor="email">Email <span className="text-muted">(Optional)</span></label>
-                                        <input type="email" onChange={(evt) => setEmailI(evt.target.value)} className="form-control" id="email" placeholder="you@example.com" />
+                                        <label htmlFor="email">Email <span className="text-muted"></span></label>
+                                        <input type="email" value={emailI} onChange={(evt) => setEmailI(evt.target.value)} className="form-control" id="email" placeholder="you@yaani.com" />
                                         <div className="invalid-feedback">
                                             Please enter a valid email address for shipping updates.
                                         </div>
                                     </div>
                                     <div className="mb-3">
                                         <label htmlFor="password">Password</label>
-                                        <input type="password" onChange={(evt) => setPasswordI(evt.target.value)} className="form-control" id="password" placeholder="1234 Main St" required />
+                                        <input type="password" value={passwordI} pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$" onChange={(evt) => setPasswordI(evt.target.value)} className="form-control" id="password" placeholder="****" required />
                                         <div className="invalid-feedback">
-                                            Valid last name is required.
+                                             Passwords should be a minimum of 8 characters and include at least one upper case letter, one lower case letter and one number.
                                         </div>
                                     </div>
                                     <button className="btn btn-lg btn-primary btn-block" type="submit">Üye Ol</button>
